@@ -30,6 +30,7 @@ This migration replaces generic seed content with a structured, bilingual-ready 
 - Formal mission, institutional vision, nonprofit/research identity, and historical context
 - 1968 founding era and QBBE’s stated December 29, 1971 legal registration
 - Academic Support, Early Literacy, Future Careers, Family First, Learn to Code, BANA, Da Costa Hall, and High School Preparation program records
+- PSSP, SEP, and Entrepreneurship/Leadership records in a dedicated institutional archive, each clearly separated from current programs
 - Colibri Volunteer Program legacy mission, vision, and values
 - Board committee context and a legacy leadership roster held for confirmation
 - Legacy FAQ themes, contact data, report records, research, advocacy, and Anti-Racism Hotline status
@@ -59,7 +60,7 @@ Academic Support current grade/course delivery, Early Literacy current cycle, Fu
 
 ## Contact Information Requiring Verification
 
-The legacy contact page lists `5050 Côte Saint Luc Rd, Montreal, Quebec H3W 2H1`, `(514) 481-9400`, `info@qbbe.ca`, and Monday–Friday 9 am–4 pm. These are centralized in `content/organization.ts` and require QBBE operational approval before launch.
+The legacy contact page lists `5050 Côte Saint Luc Rd, Montreal, Quebec H3W 2H1`, `(514) 481-9400`, `info@qbbe.ca`, and Monday–Friday 9 am–4 pm. These are centralized in `content/organization.ts` and require QBBE operational approval before launch. A historic High School Preparation source names 5165 Sherbrooke West, Suite 317; it is not used as the public address and must be formally retired or reconciled by Operations.
 
 ## Donation/Tax Language Requiring Review
 

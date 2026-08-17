@@ -4,8 +4,13 @@ export type LegacyMembershipPlan = {
   audience: LocalizedString;
   tier: string;
   price: number;
+  billingPeriod: "year";
   capacity: number;
   benefits: LocalizedString[];
+  /** Historic plans remain inactive until QBBE leadership and finance approve a current offer. */
+  active: boolean;
+  requiresApproval?: boolean;
+  sourceStatus: "verified" | "needs-review";
   meta: ContentSourceMeta;
 };
 
@@ -15,7 +20,7 @@ const meta: ContentSourceMeta = {
 };
 const benefit = (en: string, fr: string) => ({ en, fr });
 
-export const legacyMembershipPlans: LegacyMembershipPlan[] = [
+const historicMembershipPlans: Omit<LegacyMembershipPlan, "billingPeriod" | "active" | "requiresApproval" | "sourceStatus">[] = [
   { audience: benefit("Corporate Allies", "Alliés corporatifs"), tier: "Gold", price: 5000, capacity: 5, benefits: [benefit("Legacy source includes board-meeting access, consultative-body participation, advocacy and communications access, networking, event discounts, and two Lunch & Learn sessions.", "La source historique comprend l’accès aux réunions du conseil, la participation au corps consultatif, l’accès au plaidoyer et aux communications, le réseautage, des rabais sur les événements et deux séances Lunch & Learn.")], meta },
   { audience: benefit("Corporate Allies", "Alliés corporatifs"), tier: "Silver", price: 2500, capacity: 5, benefits: [benefit("Legacy source includes board minutes, consultative participation, networking, advocacy, research access, event discounts, and one Lunch & Learn session.", "La source historique comprend les procès-verbaux du conseil, la participation consultative, le réseautage, le plaidoyer, l’accès à la recherche, des rabais sur les événements et une séance Lunch & Learn.")], meta },
   { audience: benefit("Corporate Allies", "Alliés corporatifs"), tier: "Bronze", price: 1000, capacity: 5, benefits: [benefit("Legacy source includes consultative participation, networking, advocacy, communications, event discounts, and a discounted Lunch & Learn session.", "La source historique comprend la participation consultative, le réseautage, le plaidoyer, les communications, des rabais sur les événements et une séance Lunch & Learn à prix réduit.")], meta },
@@ -30,3 +35,11 @@ export const legacyMembershipPlans: LegacyMembershipPlan[] = [
   { audience: benefit("Community & Individual Allies", "Alliés communautaires et individuels"), tier: "Bronze", price: 50, capacity: 30, benefits: [benefit("Legacy source includes board minutes, member-network access, volunteer opportunities, advocacy, research-database access, and event discounts.", "La source historique comprend les procès-verbaux du conseil, l’accès au réseau des membres, des occasions de bénévolat, le plaidoyer, l’accès à une base de recherche et des rabais sur les événements.")], meta },
   { audience: benefit("Community & Individual Allies", "Alliés communautaires et individuels"), tier: "Basic", price: 25, capacity: 50, benefits: [benefit("Legacy source includes board minutes, member-network access, advocacy, and research-database access.", "La source historique comprend les procès-verbaux du conseil, l’accès au réseau des membres, le plaidoyer et l’accès à une base de recherche.")], meta },
 ];
+
+export const legacyMembershipPlans: LegacyMembershipPlan[] = historicMembershipPlans.map((plan) => ({
+  ...plan,
+  billingPeriod: "year" as const,
+  active: false,
+  requiresApproval: true,
+  sourceStatus: "needs-review" as const,
+}));

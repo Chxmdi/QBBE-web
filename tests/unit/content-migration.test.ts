@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { legacyContentInventory } from "@/content/legacy-inventory";
+import { legacyMembershipPlans } from "@/content/membership";
+import { legacyBoardMembers } from "@/content/leadership";
+import { partners } from "@/content/partners";
+import { redirects } from "@/lib/legacy-redirects";
 import { pages, programs } from "@/lib/content";
 
 describe("QBBE content migration", () => {
@@ -17,5 +21,31 @@ describe("QBBE content migration", () => {
   it("gives every inventory record a disposition", () => {
     expect(legacyContentInventory.length).toBeGreaterThan(20);
     expect(legacyContentInventory.every((item) => Boolean(item.status))).toBe(true);
+  });
+
+  it("keeps source-backed program detail fields and bilingual review state in the content layer", () => {
+    const daCosta = programs.find((program) => program.slug === "da-costa-hall");
+    expect(daCosta?.subjects).toHaveLength(2);
+    expect(daCosta?.sourceUrls).toContain("https://student.qbbe.ca/");
+    expect(programs.every((program) => program.meta.translation.en && program.meta.translation.fr)).toBe(true);
+  });
+
+  it("keeps historic Ally plans inactive until QBBE approves a current offer", () => {
+    expect(legacyMembershipPlans.length).toBeGreaterThan(0);
+    expect(legacyMembershipPlans.every((plan) => plan.billingPeriod === "year" && !plan.active && plan.requiresApproval && plan.sourceStatus === "needs-review")).toBe(true);
+  });
+
+  it("maps preserved initiatives to the institutional archive", () => {
+    expect(redirects).toEqual(expect.arrayContaining([
+      expect.objectContaining({ source: "/pssp", destination: "/en/resources/archived-initiatives", permanent: true }),
+      expect.objectContaining({ source: "/sep", destination: "/en/resources/archived-initiatives", permanent: true }),
+    ]));
+  });
+
+  it("preserves historical leadership and funder records without representing them as current", () => {
+    expect(legacyBoardMembers).toHaveLength(10);
+    expect(legacyBoardMembers.every((member) => member.status === "historical")).toBe(true);
+    expect(partners.some((partner) => partner.name === "Réseau réussite Montréal" && partner.relationshipStatus === "historical")).toBe(true);
+    expect(partners.every((partner) => partner.relationshipStatus !== "current")).toBe(true);
   });
 });

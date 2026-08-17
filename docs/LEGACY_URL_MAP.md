@@ -17,6 +17,9 @@ All destinations are locale-first. The proxy issues a permanent redirect for the
 | `/programs/the-bana-program-2/` | `/en/programs/bana` | Yes | Archived context | BANA Summer Day Camp | `/en/programs/bana` |
 | `/programs/the-dacosta-hall-program/` | `/en/programs/da-costa-hall` | Yes | Rewritten | Da Costa Hall | `/en/programs/da-costa-hall` |
 | `/programs/high-school-preparation-program/` | `/en/programs/high-school-preparation` | Yes | Verify | High School Preparation | `/en/programs/high-school-preparation` |
+| `/pssp/` | `/en/resources/archived-initiatives` | Yes | Archived context | Institutional archive | `/en/resources/archived-initiatives` |
+| `/sep/` | `/en/resources/archived-initiatives` | Yes | Archived context | Institutional archive | `/en/resources/archived-initiatives` |
+| `/programs/entrepreneurship-leadership-program/` | `/en/resources/archived-initiatives` | Yes | Archived context | Institutional archive | `/en/resources/archived-initiatives` |
 | `/volunteers/` | `/en/get-involved/volunteer` | Yes | Rewritten | One Drop at a Time. | `/en/get-involved/volunteer` |
 | `/donate/` | `/en/donate` | Yes | Rewritten | Donate | `/en/donate` |
 | `/contact-2/` | `/en/about/contact` | Yes | Rewritten | Speak with QBBE. | `/en/about/contact` |

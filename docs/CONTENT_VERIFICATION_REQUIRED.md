@@ -11,7 +11,7 @@
 | High School Preparation | Legacy navigation and board reference | QBBE program/board pages | Detail page blocked | Confirm active, course content, and enrollment | Program lead | High |
 | PSSP and SEP | Legacy pages document workshop topics and funder acknowledgements | QBBE WordPress API (`/pssp/`, `/sep/`) | Current status unknown; historic forms collect personal data | Confirm active, archive, or remove | Executive / Program lead | High |
 | Anti-Racism Hotline | Homepage label only | `qbbe.ca/` | No public contact, hours, scope, or status found | Confirm service status and safe public content | Executive / Service owner | High |
-| Contact details | Address, phone, email, 9–4 weekday hours | `qbbe.ca/contact-2/` | Could be outdated | Approve centralized settings | Operations | High |
+| Contact details | Address, phone, email, 9–4 weekday hours | `qbbe.ca/contact-2/` and `student.qbbe.ca` | Legacy program material also names a former Sherbrooke address, while the current contact/portal material uses 5050 Côte Saint-Luc Rd | Confirm the official public address, phone, email, and hours; retire every superseded location | Operations | High |
 | Leadership roster | Legacy board names and roles | `qbbe.ca/board-of-directors/` | Timeliness, terms, photos, and consent unknown | Approve current board/staff data | Board secretary | High |
 | Partner status | Dawson, BCRC, Concordia, Red Cross visual acknowledgements | QBBE legacy home | Current versus historical status unknown | Classify each relationship and approve logo use | Partnerships | Medium |
 | Reports | 2020 annual report and 2000 financial statement records | QBBE report pages | File URLs not confirmed | Provide approved PDFs, dates, and archival labels | Finance / Operations | Medium |

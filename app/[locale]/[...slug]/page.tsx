@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
-import { faqs, organization, pages, reports } from "@/lib/content";
+import { faqs, legacyBoardMembers, organization, pages, partners, reports } from "@/lib/content";
 import { isLocale, localePath } from "@/lib/i18n";
 
 const formTypes = {
@@ -41,6 +41,8 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
   const formType = formTypes[path as keyof typeof formTypes];
   const isFaq = path === "resources/faq";
   const isReports = path === "impact/reports" || path === "resources/publications";
+  const isLeadership = path === "about/leadership";
+  const isPartners = path === "about/partners";
 
   return <>
     <PageHero eyebrow={content.eyebrow[locale]} title={content.title[locale]} lead={content.lead[locale]} />
@@ -57,6 +59,16 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
           </section>}
           {isReports && <section className="resource-list" aria-label={locale === "en" ? "Report archive" : "Archives des rapports"}>
             {reports.map((report) => <a className="list-item" href={report.sourceUrl} key={report.sourceUrl} target="_blank" rel="noreferrer"><time>{report.year}<br />{report.archived ? (locale === "en" ? "Archive" : "Archives") : ""}</time><div><h3>{report.title[locale]}</h3><p>{report.description[locale]}</p></div><ExternalLink aria-hidden="true" /></a>)}
+          </section>}
+          {isLeadership && <section className="resource-list" aria-label={locale === "en" ? "Historical board roster" : "Liste historique du conseil"}>
+            <h2>{locale === "en" ? "Historical board roster" : "Liste historique du conseil"}</h2>
+            <p>{locale === "en" ? "These names are retained from a legacy QBBE Board page. They are not a current roster." : "Ces noms sont conservés à partir d’une page historique du conseil de QBBE. Il ne s’agit pas de la liste actuelle."}</p>
+            {legacyBoardMembers.map((member) => <article className="list-item" key={member.name}><div><h3>{member.name}</h3><p>{locale === "en" ? "Historical Board of Directors record" : "Dossier historique du conseil d’administration"}</p></div></article>)}
+          </section>}
+          {isPartners && <section className="resource-list" aria-label={locale === "en" ? "Partner and funder records" : "Dossiers des partenaires et bailleurs de fonds"}>
+            <h2>{locale === "en" ? "Historical acknowledgements and funder records" : "Reconnaissances historiques et dossiers de bailleurs de fonds"}</h2>
+            <p>{locale === "en" ? "These records preserve QBBE-owned acknowledgements. They do not assert a current partnership." : "Ces dossiers préservent les reconnaissances appartenant à QBBE. Ils n’affirment pas l’existence d’un partenariat actuel."}</p>
+            {partners.map((partner) => <article className="list-item" key={partner.name}><time>{partner.category[locale]}</time><div><h3>{partner.name}</h3><p>{partner.description?.[locale]}</p></div></article>)}
           </section>}
           {!formType && <Link className="button" href={content.cta?.href ? localePath(locale, content.cta.href) : localePath(locale, path.startsWith("get-involved") ? "/get-involved/membership" : "/programs")}>
             {content.cta?.label[locale] ?? (locale === "en" ? "Explore QBBE programs" : "Explorer les programmes QBBE")}<ArrowRight size={16} />
