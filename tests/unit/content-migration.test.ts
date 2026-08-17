@@ -161,4 +161,12 @@ describe("QBBE content migration", () => {
       expect.objectContaining({ kind: "faq", title: "Qu’est-ce que QBBE?" }),
     ]));
   });
+
+  it("includes source-backed audience, volunteering, and contact FAQs", () => {
+    expect(faqs).toEqual(expect.arrayContaining([
+      expect.objectContaining({ category: "about", question: { en: "Who does QBBE serve?", fr: "Qui QBBE sert-il?" } }),
+      expect.objectContaining({ category: "volunteering", question: { en: "How can I volunteer?", fr: "Comment puis-je faire du bénévolat?" } }),
+      expect.objectContaining({ category: "contact", question: { en: "How can I reach QBBE?", fr: "Comment puis-je joindre QBBE?" } }),
+    ]));
+  });
 });

@@ -39,7 +39,7 @@ Reviewed: 2026-08-17. This audit records the evidence currently available in the
 | Legacy inventory/disposition | `content/legacy-inventory.ts` | 70 discovered records carry a required disposition; final WordPress API page, post, product, and verified-annual-report comparison has no unexplained omission | Complete old-site export and inaccessible route verification |
 | Redirects and SEO | `lib/legacy-redirects.ts`, `lib/seo.ts`, `content/route-seo.ts`, `docs/LEGACY_URL_MAP.md`, sitemap tests | Core routes map permanently; every managed, program, and foundation route has localized title/description, canonical, `hreflang`, and Open Graph metadata; EN/FR sitemap coverage tested | Complete legacy URL export, French slug confirmation |
 | Sanity editorial handoff | `sanity/schemaTypes/*`, `CONTENT_EDITORIAL_WORKFLOW.md` | Models exist for pages, programs, organization, reports, people, partners, FAQs, plans, events, metrics | QBBE project/dataset, approved entries, preview/revalidation setup |
-| Build and regression checks | `npm run lint`, `npm test`, `npm run build` | Passed on 2026-08-17; 19 migration-focused tests, source-traceability guard, and 44 localized static pages | Browser/device/accessibility audit against deployed preview |
+| Build and regression checks | `npm run lint`, `npm test`, `npm run build` | Passed on 2026-08-17; 20 migration-focused tests, source-traceability guard, and 44 localized static pages | Browser/device/accessibility audit against deployed preview |
 
 ## Final source comparison status
 
