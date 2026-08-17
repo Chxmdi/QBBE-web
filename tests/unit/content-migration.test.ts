@@ -20,10 +20,11 @@ describe("QBBE content migration", () => {
   });
 
   it("gives every inventory record a disposition", () => {
-    expect(legacyContentInventory).toHaveLength(66);
+    expect(legacyContentInventory).toHaveLength(68);
     expect(legacyContentInventory.every((item) => Boolean(item.status))).toBe(true);
     expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/private-parenting-facebook-group/" && item.status === "archive")).toBe(true);
     expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/qbbe-and-red-rush-form-partnership-for-summer-institute-2021/" && item.status === "archive")).toBe(true);
+    expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/product/donation/" && item.proposedNewRoute === "/en/donate")).toBe(true);
   });
 
   it("keeps source-backed program detail fields and bilingual review state in the content layer", () => {
@@ -43,6 +44,7 @@ describe("QBBE content migration", () => {
       expect.objectContaining({ source: "/pssp", destination: "/en/resources/archived-initiatives", permanent: true }),
       expect.objectContaining({ source: "/sep", destination: "/en/resources/archived-initiatives", permanent: true }),
       expect.objectContaining({ source: "/private-parenting-facebook-group", destination: "/en/resources/parents", permanent: true }),
+      expect.objectContaining({ source: "/product/donation", destination: "/en/donate", permanent: true }),
     ]));
   });
 

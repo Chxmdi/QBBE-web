@@ -12,7 +12,7 @@ This migration replaces generic seed content with a structured, bilingual-ready 
 
 ## Total Legacy Pages Found
 
-66 meaningful pages, services, initiatives, or records are represented in `content/legacy-inventory.ts`. The final public WordPress API comparison returned 56 indexed pages and the public post index returned five historic employment/partnership posts. This recovered seven records absent from the earlier inventory: the legacy Programs index, a private parenting Facebook-group form, four historic job postings, and a 2021 Red Rush partnership article. The inventory also retains QBBE-owned French, student-portal, and homepage service records that are not separate WordPress page-index entries. Several routes returned a verification interstitial; those records are explicitly marked for follow-up.
+68 meaningful pages, services, initiatives, or records are represented in `content/legacy-inventory.ts`. The final public WordPress API comparison returned 56 indexed pages, five historic employment/partnership posts, and two legacy WooCommerce products. This recovered nine records absent from the earlier inventory: the legacy Programs index, a private parenting Facebook-group form, four historic job postings, a 2021 Red Rush partnership article, and Registration/Donation product checkouts. The inventory also retains QBBE-owned French, student-portal, and homepage service records that are not separate WordPress page-index entries. Several routes returned a verification interstitial; those records are explicitly marked for follow-up.
 
 ## Content Classification
 
@@ -21,7 +21,7 @@ This migration replaces generic seed content with a structured, bilingual-ready 
 | Keep | 0 | No legacy item was copied unchanged; all retained material was rewritten, merged, archived, or held for verification |
 | Rewrite | 10 | Rewritten into route-specific Website 2.0 content |
 | Merge | 10 | Consolidated into the new information architecture |
-| Archive | 29 | Retained as historical content, not current operational content |
+| Archive | 31 | Retained as historical content, not current operational content |
 | Delete | 5 | Internal or orphan utility pages intentionally excluded from public migration |
 | Verify with QBBE | 12 | Kept out of current operational claims pending approval |
 
@@ -92,4 +92,4 @@ The core legacy map in `lib/legacy-redirects.ts` covers history, board, partners
 
 ## Final Source Comparison
 
-The final 2026-08-17 WordPress API page-and-post-index comparison found no unexplained current-page or current-post omission after adding the Programs index, private parenting Facebook Group form, four historic job postings, and the 2021 Red Rush partnership article to `content/legacy-inventory.ts`. Every meaningful item reached in the QBBE public navigation or API index has an explicit disposition: migrated/re-written, merged, archived, intentionally deleted, or awaiting verification. The remaining differences are intentional: Website 2.0 removes unsupported seed metrics, scheduled events, testimonials, and current operational claims; it does not reproduce blocked legacy pages, expired dates, historic prices, private forms, historic vacancies, or unverified partner/leadership data as current content.
+The final 2026-08-17 WordPress API page, post, and product-index comparison found no unexplained indexed-content omission after adding the Programs index, private parenting Facebook Group form, four historic job postings, the 2021 Red Rush partnership article, and two legacy checkout products to `content/legacy-inventory.ts`. Every meaningful item reached in the QBBE public navigation or API index has an explicit disposition: migrated/re-written, merged, archived, intentionally deleted, or awaiting verification. The remaining differences are intentional: Website 2.0 removes unsupported seed metrics, scheduled events, testimonials, and current operational claims; it does not reproduce blocked legacy pages, expired dates, historic prices, private forms, historic vacancies, inactive checkouts, or unverified partner/leadership data as current content.

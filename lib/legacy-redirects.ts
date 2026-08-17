@@ -19,6 +19,8 @@ export const redirects = [
   { source: "/private-parenting-facebook-group", destination: "/en/resources/parents", permanent: true },
   { source: "/volunteers", destination: "/en/get-involved/volunteer", permanent: true },
   { source: "/donate", destination: "/en/donate", permanent: true },
+  { source: "/product/donation", destination: "/en/donate", permanent: true },
+  { source: "/product/registration", destination: "/en/register", permanent: true },
   { source: "/contact-2", destination: "/en/about/contact", permanent: true },
   { source: "/upcoming-events-3", destination: "/en/events", permanent: true },
   { source: "/membership-plans", destination: "/en/get-involved/membership", permanent: true },

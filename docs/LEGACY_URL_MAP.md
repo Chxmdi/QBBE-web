@@ -24,6 +24,8 @@ All destinations are locale-first. The proxy issues a permanent redirect for the
 | `/private-parenting-facebook-group/` | `/en/resources/parents` | Yes | Archived privacy-sensitive form | Resources for parents | `/en/resources/parents` |
 | `/volunteers/` | `/en/get-involved/volunteer` | Yes | Rewritten | One Drop at a Time. | `/en/get-involved/volunteer` |
 | `/donate/` | `/en/donate` | Yes | Rewritten | Donate | `/en/donate` |
+| `/product/donation/` | `/en/donate` | Yes | Archived legacy checkout | Donate | `/en/donate` |
+| `/product/registration/` | `/en/register` | Yes | Archived legacy checkout | Register | `/en/register` |
 | `/contact-2/` | `/en/about/contact` | Yes | Rewritten | Speak with QBBE. | `/en/about/contact` |
 | `/upcoming-events-3/` | `/en/events` | Yes | Verify | Gather when details are confirmed. | `/en/events` |
 | `/membership-plans/` | `/en/get-involved/membership` | Yes | Archived 2021 source | Support QBBE through an Ally relationship. | `/en/get-involved/membership` |
