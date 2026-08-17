@@ -38,3 +38,15 @@ All destinations are locale-first. The proxy issues a permanent redirect for the
 | `/fr/faq/` | `/fr/resources/faq` | Yes | Rewritten | Des réponses claires, avec des limites claires. | `/fr/resources/faq` |
 
 The redirect map is implemented in `lib/legacy-redirects.ts`. It should be expanded after QBBE supplies a complete old-site URL export and confirms French legacy slugs.
+
+## Runtime metadata verification
+
+Every mapped destination emits a localized title, meta description, canonical URL, English/French `hreflang` pair, and `x-default` through `lib/seo.ts`. The values are not copied into this table, so the document cannot drift from the runtime content model:
+
+| Destination type | SEO title source | Meta description source |
+| --- | --- | --- |
+| Managed content routes, including history, governance, partners, FAQ, archive, and reports | `content/pages.ts` → route `title` | `content/pages.ts` → route `lead` |
+| Program detail routes | `content/programs.ts` → program `title` | `content/programs.ts` → `shortSummary` or `summary` |
+| Programs, events, donate, register, Ally membership, search, and home | `content/route-seo.ts` → route `title` | `content/route-seo.ts` → route `description` |
+
+This metadata implementation is covered by `tests/unit/content-migration.test.ts`. A complete legacy export is still required to expand the URL inventory and verify unobserved French slugs.
