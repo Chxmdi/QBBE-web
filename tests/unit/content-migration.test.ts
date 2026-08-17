@@ -45,6 +45,13 @@ describe("QBBE content migration", () => {
     ]));
   });
 
+  it("describes the verified report files accurately while retaining an approval gate", () => {
+    const reportLead = pages["impact/reports"].lead.en;
+    expect(reportLead).toContain("verified public archival records");
+    expect(reportLead).toContain("must still approve");
+    expect(reportLead).not.toContain("pending file verification");
+  });
+
   it("keeps historic Ally plans inactive until QBBE approves a current offer", () => {
     expect(legacyMembershipPlans.length).toBeGreaterThan(0);
     expect(legacyMembershipPlans.every((plan) => plan.billingPeriod === "year" && !plan.active && plan.requiresApproval && plan.sourceStatus === "needs-review")).toBe(true);
