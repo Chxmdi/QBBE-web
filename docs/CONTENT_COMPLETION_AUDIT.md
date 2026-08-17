@@ -31,6 +31,7 @@ Reviewed: 2026-08-17. This audit records the evidence currently available in the
 | Donation content | `/donate`, `components/donation-form.tsx` | No unsupported impact-per-dollar, tax, or restricted-fund claim | Finance/legal/payment policy approval |
 | Ally membership | `content/membership.ts`, `membershipPlan` schema | 2021 record structured, inactive, approval-gated | Current benefits, price, Stripe setup |
 | Registration | `/register`, student portal handoff | New sensitive intake not exposed before retention/consent review | Approved fields, purpose, RLS, retention, deletion |
+| Global search | `lib/search.ts`, `/search` | Bilingual discovery index covers programs, route-specific pages, report archive records, and FAQs, grouped by content type | Sanity-backed search index and analytics once approved editorial content is connected |
 | Events | `/events`, `event` schema | No fake event remains; future events have a CMS model | Approved event records |
 | Metrics/testimonials | homepage, `impactMetric` schema | Seed metrics/testimonials removed; approval-gated model present | Sourced/consented approved records |
 | English/French status | `ContentSourceMeta`, content records, Sanity schemas | Every migrated fallback object records EN/FR status; French routes contain French copy | QBBE language approval |
@@ -38,7 +39,7 @@ Reviewed: 2026-08-17. This audit records the evidence currently available in the
 | Legacy inventory/disposition | `content/legacy-inventory.ts` | 70 discovered records carry a required disposition; final WordPress API page, post, product, and verified-annual-report comparison has no unexplained omission | Complete old-site export and inaccessible route verification |
 | Redirects and SEO | `lib/legacy-redirects.ts`, `lib/seo.ts`, `content/route-seo.ts`, `docs/LEGACY_URL_MAP.md`, sitemap tests | Core routes map permanently; every managed, program, and foundation route has localized title/description, canonical, `hreflang`, and Open Graph metadata; EN/FR sitemap coverage tested | Complete legacy URL export, French slug confirmation |
 | Sanity editorial handoff | `sanity/schemaTypes/*`, `CONTENT_EDITORIAL_WORKFLOW.md` | Models exist for pages, programs, organization, reports, people, partners, FAQs, plans, events, metrics | QBBE project/dataset, approved entries, preview/revalidation setup |
-| Build and regression checks | `npm run lint`, `npm test`, `npm run build` | Passed on 2026-08-17; 18 migration-focused tests, source-traceability guard, and 44 localized static pages | Browser/device/accessibility audit against deployed preview |
+| Build and regression checks | `npm run lint`, `npm test`, `npm run build` | Passed on 2026-08-17; 19 migration-focused tests, source-traceability guard, and 44 localized static pages | Browser/device/accessibility audit against deployed preview |
 
 ## Final source comparison status
 

@@ -9,6 +9,7 @@ import { pages, programs, routeSeo } from "@/lib/content";
 import { localizedMetadata } from "@/lib/seo";
 import { donationContent } from "@/content/donation";
 import { faqs, organization, reports } from "@/content/organization";
+import { publicSearchEntries } from "@/lib/search";
 import sitemap from "@/app/sitemap";
 
 describe("QBBE content migration", () => {
@@ -144,5 +145,20 @@ describe("QBBE content migration", () => {
       ...Object.values(annualReportAdditions),
     ];
     expect(records.every((record) => record.meta.sourceUrls.length > 0)).toBe(true);
+  });
+
+  it("searches programs, pages, reports, and FAQs in both locales", () => {
+    const english = publicSearchEntries("en");
+    const french = publicSearchEntries("fr");
+    expect(english).toEqual(expect.arrayContaining([
+      expect.objectContaining({ kind: "program", title: "Daycare Program", href: "/programs/daycare-program" }),
+      expect.objectContaining({ kind: "report", title: "2020 Annual Report", href: "/impact/reports" }),
+      expect.objectContaining({ kind: "faq", title: "What is QBBE?", href: "/resources/faq" }),
+    ]));
+    expect(french).toEqual(expect.arrayContaining([
+      expect.objectContaining({ kind: "program", title: "Programme de garde" }),
+      expect.objectContaining({ kind: "report", title: "Rapport annuel 2020" }),
+      expect.objectContaining({ kind: "faq", title: "Qu’est-ce que QBBE?" }),
+    ]));
   });
 });
