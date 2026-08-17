@@ -1,9 +1,18 @@
 import type { ContentSourceMeta, PageContent } from "./types";
+import { organization } from "./organization";
 
 const migratedAt = "2026-08-17";
 const qbbe = "https://qbbe.ca/";
 const meta = (sourceUrls: string[], verificationStatus: ContentSourceMeta["verificationStatus"], notes?: string): ContentSourceMeta => ({ sourceUrls, migratedAt, migratedBy: "Website 2.0 migration", verificationStatus, notes, translation: { en: "needs-review", fr: "needs-review" } });
 const page = (eyebrow: PageContent["eyebrow"], title: PageContent["title"], lead: PageContent["lead"], sections: PageContent["sections"], sourceUrls: string[], verificationStatus: ContentSourceMeta["verificationStatus"], notes?: string, cta?: PageContent["cta"]): PageContent => ({ eyebrow, title, lead, sections, cta, meta: meta(sourceUrls, verificationStatus, notes) });
+const publicOfficeContact = {
+  en: `QBBE’s legacy contact page lists ${organization.address}; ${organization.phone}; and ${organization.primaryEmail}. It lists ${organization.officeHours.en}.`,
+  fr: `La page de contact historique de QBBE indique le ${organization.address}; le ${organization.phone}; et ${organization.primaryEmail}. Elle indique les heures suivantes : ${organization.officeHours.fr}.`,
+};
+const publicContactHelp = {
+  en: `The legacy FAQ lists ${organization.phone} and ${organization.primaryEmail}. Use the contact page for centralized details and to ask about a current program cycle.`,
+  fr: `La FAQ historique indique le ${organization.phone} et ${organization.primaryEmail}. Utilisez la page de contact pour obtenir les coordonnées centralisées et vous renseigner sur un cycle de programme actuel.`,
+};
 
 export const pages: Record<string, PageContent> = {
   about: page(
@@ -39,7 +48,7 @@ export const pages: Record<string, PageContent> = {
   "about/contact": page(
     { en: "Contact", fr: "Contact" }, { en: "Speak with QBBE.", fr: "Communiquez avec QBBE." },
     { en: "Use the secure contact form or reach the QBBE office directly.", fr: "Utilisez le formulaire de contact sécurisé ou communiquez directement avec le bureau de QBBE." },
-    [{ heading: { en: "Office contact", fr: "Coordonnées du bureau" }, paragraphs: [{ en: "QBBE’s legacy contact page lists 5050 Côte Saint Luc Rd, Montreal, Quebec H3W 2H1; (514) 481-9400; and info@qbbe.ca. It lists Monday to Friday hours from 9 am to 4 pm.", fr: "La page de contact historique de QBBE indique le 5050, chemin de la Côte-Saint-Luc, Montréal (Québec) H3W 2H1; le (514) 481-9400; et info@qbbe.ca. Elle indique des heures du lundi au vendredi, de 9 h à 16 h." }] }],
+    [{ heading: { en: "Office contact", fr: "Coordonnées du bureau" }, paragraphs: [publicOfficeContact] }],
     ["https://qbbe.ca/contact-2/"], "needs-editorial-review", "Values are centralized in content/organization.ts and require final operational confirmation."),
   impact: page(
     { en: "Impact", fr: "Impact" }, { en: "Educational equity is more than a number.", fr: "L’équité en éducation est plus qu’un chiffre." },
@@ -104,7 +113,7 @@ export const pages: Record<string, PageContent> = {
   "resources/faq": page(
     { en: "Frequently asked questions", fr: "Foire aux questions" }, { en: "Clear answers, with clear limits.", fr: "Des réponses claires, avec des limites claires." },
     { en: "QBBE’s legacy FAQ has been consolidated into a reviewed content model. Financial and tax questions remain clearly marked for confirmation.", fr: "La FAQ historique de QBBE a été consolidée dans un modèle de contenu révisé. Les questions financières et fiscales demeurent clairement indiquées pour confirmation." },
-    [{ heading: { en: "Need help now?", fr: "Besoin d’aide maintenant?" }, paragraphs: [{ en: "The legacy FAQ lists (514) 481-9400 and info@qbbe.ca. Use the contact page for centralized details and to ask about a current program cycle.", fr: "La FAQ historique indique le (514) 481-9400 et info@qbbe.ca. Utilisez la page de contact pour obtenir les coordonnées centralisées et vous renseigner sur un cycle de programme actuel." }] }],
+    [{ heading: { en: "Need help now?", fr: "Besoin d’aide maintenant?" }, paragraphs: [publicContactHelp] }],
     ["https://qbbe.ca/faqs/"], "needs-editorial-review"),
   "resources/anti-racism-support": page(
     { en: "Anti-racism support", fr: "Soutien contre le racisme" }, { en: "Service status requires confirmation.", fr: "L’état du service doit être confirmé." },

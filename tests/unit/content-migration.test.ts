@@ -80,6 +80,17 @@ describe("QBBE content migration", () => {
     expect(content.every((page) => page.meta.sourceUrls.length > 0 && page.meta.translation.en && page.meta.translation.fr)).toBe(true);
   });
 
+  it("uses centralized public contact data in route content", async () => {
+    const { organization } = await import("@/content/organization");
+    const contactCopy = pages["about/contact"].sections[0].paragraphs[0];
+    const faqHelpCopy = pages["resources/faq"].sections[0].paragraphs[0];
+    expect(contactCopy.en).toContain(organization.address);
+    expect(contactCopy.en).toContain(organization.phone);
+    expect(contactCopy.en).toContain(organization.primaryEmail);
+    expect(faqHelpCopy.en).toContain(organization.phone);
+    expect(faqHelpCopy.en).toContain(organization.primaryEmail);
+  });
+
   it("includes each managed page in both locale sitemaps", () => {
     const urls = sitemap().map((entry) => entry.url);
     for (const path of Object.keys(pages)) {
