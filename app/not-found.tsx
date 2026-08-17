@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound() { return <main className="section section--blue"><div className="shell"><p className="eyebrow">404</p><h1 className="display" style={{ fontSize: "clamp(4rem, 10vw, 8rem)" }}>This page has moved.</h1><p className="lede" style={{ color: "rgba(255,255,255,.75)" }}>The QBBE experience is being rebuilt with clearer paths forward.</p><Link className="button button--gold" href="/en">Go to QBBE</Link></div></main>; }

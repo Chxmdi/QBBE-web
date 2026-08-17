@@ -1,0 +1,3 @@
+export const analyticsEvents = ["program_viewed", "program_filter_used", "registration_started", "registration_completed", "donation_started", "donation_completed", "membership_viewed", "membership_started", "membership_completed", "volunteer_started", "volunteer_completed", "event_registration_clicked", "newsletter_subscribed", "language_changed"] as const;
+export type AnalyticsEvent = (typeof analyticsEvents)[number];
+export function track(event: AnalyticsEvent, properties: Record<string, string | number | boolean> = {}) { if (typeof window !== "undefined") window.dispatchEvent(new CustomEvent("qbbe:analytics", { detail: { event, properties } })); }

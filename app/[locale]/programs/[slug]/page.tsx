@@ -1,0 +1,12 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ArrowRight } from "lucide-react";
+import { PageHero } from "@/components/page-hero";
+import { programs } from "@/lib/content";
+import { isLocale, localePath } from "@/lib/i18n";
+
+export function generateStaticParams() { return programs.flatMap((program) => ["en", "fr"].map((locale) => ({ locale, slug: program.slug }))); }
+export default async function ProgramPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params; if (!isLocale(locale)) notFound(); const program = programs.find((item) => item.slug === slug); if (!program) notFound();
+  return <><PageHero eyebrow={locale === "en" ? "QBBE Program" : "Programme QBBE"} title={program.title[locale]} lead={program.summary[locale]} /><section className="section"><div className="shell content-grid"><article className="prose"><h2>{locale === "en" ? "Built around students and families." : "Conçu autour des élèves et des familles."}</h2><p>{locale === "en" ? "This program combines responsive support, community connection and practical learning. Details, dates and eligibility are managed by QBBE and will be updated as each program cycle is confirmed." : "Ce programme combine un soutien adapté, des liens communautaires et des apprentissages pratiques. Les détails, dates et critères sont gérés par QBBE et mis à jour à mesure que chaque cycle est confirmé."}</p><h2>{locale === "en" ? "What to expect" : "À quoi s’attendre"}</h2><p>{locale === "en" ? "A welcoming, accessible experience centred on each participant’s goals. Families and participants receive clear next steps after submitting their interest or registration." : "Une expérience accueillante et accessible axée sur les objectifs de chaque participant. Les familles et participants reçoivent des prochaines étapes claires après avoir soumis leur intérêt ou leur inscription."}</p><Link className="button" href={`${localePath(locale, "/register")}?program=${program.slug}`}>{locale === "en" ? "Start registration" : "Commencer l’inscription"}<ArrowRight size={17} /></Link></article><aside className="detail-meta"><dl><dt>{locale === "en" ? "For" : "Pour"}</dt><dd>{program.age}</dd><dt>{locale === "en" ? "Format" : "Format"}</dt><dd>{program.format[locale]}</dd><dt>{locale === "en" ? "Schedule" : "Horaire"}</dt><dd>{program.schedule[locale]}</dd><dt>{locale === "en" ? "Registration" : "Inscription"}</dt><dd>{program.status[locale]}</dd></dl></aside></div></section></>;
+}

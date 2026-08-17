@@ -1,0 +1,9 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { PageHero } from "@/components/page-hero";
+import { events } from "@/lib/content";
+import { formatDate } from "@/lib/utils";
+import { isLocale, localePath } from "@/lib/i18n";
+
+export function generateStaticParams() { return events.flatMap((event) => ["en", "fr"].map((locale) => ({ locale, slug: event.slug }))); }
+export default async function EventPage({ params }: { params: Promise<{ locale: string; slug: string }> }) { const { locale, slug } = await params; if (!isLocale(locale)) notFound(); const event = events.find((item) => item.slug === slug); if (!event) notFound(); return <><PageHero eyebrow={`${formatDate(event.date, locale)} · ${event.type[locale]}`} title={event.title[locale]} lead={event.description[locale]} /><section className="section"><div className="shell content-grid"><article className="prose"><h2>{locale === "en" ? "Join the conversation." : "Joignez-vous à la conversation."}</h2><p>{locale === "en" ? "Event details, schedules, accessibility information and speaker updates will be maintained here as the program is confirmed." : "Les détails de l’événement, l’horaire, les informations d’accessibilité et les mises à jour sur les invités seront tenus à jour ici."}</p><Link className="button" href={`${localePath(locale, "/register")}?event=${event.slug}`}>{locale === "en" ? "Register for this event" : "S’inscrire à cet événement"}</Link></article><aside className="detail-meta"><dl><dt>{locale === "en" ? "Date" : "Date"}</dt><dd>{formatDate(event.date, locale)}</dd><dt>{locale === "en" ? "Location" : "Lieu"}</dt><dd>{event.location[locale]}</dd><dt>{locale === "en" ? "Accessibility" : "Accessibilité"}</dt><dd>{locale === "en" ? "Details shared with registrants" : "Détails communiqués aux personnes inscrites"}</dd></dl></aside></div></section></>; }
