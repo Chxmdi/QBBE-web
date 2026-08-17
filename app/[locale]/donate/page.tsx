@@ -10,4 +10,4 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return isLocale(locale) ? localizedMetadata(locale, "/donate", routeSeo.donate.title, routeSeo.donate.description) : {};
 }
 
-export default async function DonatePage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!isLocale(locale)) notFound(); return <DonationForm locale={locale} />; }
+export default async function DonatePage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!isLocale(locale)) notFound(); return <DonationForm locale={locale} checkoutEnabled={process.env.QBBE_DONATIONS_ENABLED === "true"} />; }
