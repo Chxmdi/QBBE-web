@@ -13,6 +13,7 @@ Without external credentials, the site runs with bilingual seed content and safe
 - [Content migration report](docs/CONTENT_MIGRATION_REPORT.md)
 - [QBBE verification register](docs/CONTENT_VERIFICATION_REQUIRED.md)
 - [Legacy URL map](docs/LEGACY_URL_MAP.md)
+- [Content editorial workflow](docs/CONTENT_EDITORIAL_WORKFLOW.md)
 
 The fallback content is deliberately source-traceable and marks English/French approval status. It is not a substitute for QBBE program, legal, finance, and translation approval in Sanity.
 
