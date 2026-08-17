@@ -8,6 +8,7 @@ import { redirects } from "@/lib/legacy-redirects";
 import { pages, programs, routeSeo } from "@/lib/content";
 import { localizedMetadata } from "@/lib/seo";
 import { donationContent } from "@/content/donation";
+import { faqs, organization, reports } from "@/content/organization";
 import sitemap from "@/app/sitemap";
 
 describe("QBBE content migration", () => {
@@ -126,5 +127,22 @@ describe("QBBE content migration", () => {
     expect(donationContent.inKind.body.en).toContain("item wish list");
     expect(donationContent.inKind.body.en).toContain("must be confirmed");
     expect(donationContent.inKind.body.en).not.toMatch(/https?:\/\//);
+  });
+
+  it("keeps every migrated content collection source-traceable", () => {
+    const records = [
+      ...Object.values(pages),
+      ...programs,
+      ...reports,
+      ...faqs,
+      ...legacyMembershipPlans,
+      ...legacyBoardMembers,
+      ...partners,
+      ...Object.values(routeSeo),
+      donationContent.inKind,
+      organization,
+      ...Object.values(annualReportAdditions),
+    ];
+    expect(records.every((record) => record.meta.sourceUrls.length > 0)).toBe(true);
   });
 });
