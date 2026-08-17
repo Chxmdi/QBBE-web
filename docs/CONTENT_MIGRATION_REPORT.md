@@ -67,7 +67,7 @@ The legacy contact page lists `5050 Côte Saint Luc Rd, Montreal, Quebec H3W 2H1
 
 ## Donation/Tax Language Requiring Review
 
-Charity status, tax receipt eligibility, legal payment wording, restricted donation options, and historic wishlist information have not been asserted as current. Finance and legal approval is required before enabling production checkout.
+Charity status, tax receipt eligibility, legal payment wording, restricted donation options, and historic wishlist information have not been asserted as current. The public Donate page’s classroom-item wish-list reference is retained as a confirmation-gated in-kind giving note, without an external provider link. Finance and legal approval is required before enabling production checkout or publishing a vendor, shipping, or receipt claim.
 
 ## Registration Data Protection
 

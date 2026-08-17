@@ -7,6 +7,7 @@ import { annualReportAdditions } from "@/content/annual-report-additions";
 import { redirects } from "@/lib/legacy-redirects";
 import { pages, programs, routeSeo } from "@/lib/content";
 import { localizedMetadata } from "@/lib/seo";
+import { donationContent } from "@/content/donation";
 import sitemap from "@/app/sitemap";
 
 describe("QBBE content migration", () => {
@@ -118,5 +119,12 @@ describe("QBBE content migration", () => {
       alternates: { canonical: "/fr/register", languages: { en: "/en/register", fr: "/fr/register", "x-default": "/en/register" } },
       openGraph: { locale: "fr_CA", alternateLocale: "en_CA" },
     });
+  });
+
+  it("retains the current in-kind giving reference without publishing an unverified provider link", () => {
+    expect(donationContent.inKind.meta.sourceUrls).toContain("https://qbbe.ca/donate/");
+    expect(donationContent.inKind.body.en).toContain("item wish list");
+    expect(donationContent.inKind.body.en).toContain("must be confirmed");
+    expect(donationContent.inKind.body.en).not.toMatch(/https?:\/\//);
   });
 });

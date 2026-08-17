@@ -6,6 +6,7 @@ export { annualReportAdditions } from "@/content/annual-report-additions";
 export { pages } from "@/content/pages";
 export { partners } from "@/content/partners";
 export { routeSeo } from "@/content/route-seo";
+export { donationContent } from "@/content/donation";
 export type { ContentSourceMeta, ContentSection, FAQItem, LocalizedRichText, LocalizedString, PageContent, Partner, Person, Program, Report, TranslationStatus, VerificationStatus } from "@/content/types";
 
 // No upcoming event is published until QBBE supplies and approves its date, location, audience, and registration status.
