@@ -5,7 +5,8 @@ import { legacyBoardMembers } from "@/content/leadership";
 import { partners } from "@/content/partners";
 import { annualReportAdditions } from "@/content/annual-report-additions";
 import { redirects } from "@/lib/legacy-redirects";
-import { pages, programs } from "@/lib/content";
+import { pages, programs, routeSeo } from "@/lib/content";
+import { localizedMetadata } from "@/lib/seo";
 import sitemap from "@/app/sitemap";
 
 describe("QBBE content migration", () => {
@@ -104,5 +105,16 @@ describe("QBBE content migration", () => {
       expect(urls).toContain(`https://qbbe.ca/en/${path}`);
       expect(urls).toContain(`https://qbbe.ca/fr/${path}`);
     }
+  });
+
+  it("gives every foundation route source-traceable localized SEO metadata", () => {
+    expect(Object.values(routeSeo).every((entry) => entry.meta.sourceUrls.length > 0 && entry.meta.translation.en && entry.meta.translation.fr)).toBe(true);
+    const metadata = localizedMetadata("fr", "/register", routeSeo.register.title, routeSeo.register.description);
+    expect(metadata).toMatchObject({
+      title: routeSeo.register.title.fr,
+      description: routeSeo.register.description.fr,
+      alternates: { canonical: "/fr/register", languages: { en: "/en/register", fr: "/fr/register", "x-default": "/en/register" } },
+      openGraph: { locale: "fr_CA", alternateLocale: "en_CA" },
+    });
   });
 });

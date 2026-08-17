@@ -1,0 +1,20 @@
+import type { ContentSourceMeta, LocalizedString } from "./types";
+
+export type RouteSeo = {
+  title: LocalizedString;
+  description: LocalizedString;
+  meta: ContentSourceMeta;
+};
+
+const migratedAt = "2026-08-17";
+const source = (sourceUrls: string[], verificationStatus: ContentSourceMeta["verificationStatus"], notes?: string): ContentSourceMeta => ({ sourceUrls, migratedAt, migratedBy: "Website 2.0 migration", verificationStatus, notes, translation: { en: "needs-review", fr: "needs-review" } });
+
+export const routeSeo: Record<"home" | "programs" | "events" | "donate" | "register" | "membership" | "search", RouteSeo> = {
+  home: { title: { en: "Quebec Board of Black Educators", fr: "Quebec Board of Black Educators" }, description: { en: "QBBE is a nonprofit education and research institution supporting educational opportunity, awareness of educational bias, and communities of colour across Quebec.", fr: "QBBE est une institution d’éducation et de recherche à but non lucratif qui soutient les possibilités éducatives, la sensibilisation aux préjugés en éducation et les communautés de couleur au Québec." }, meta: source(["https://qbbe.ca/"], "needs-editorial-review") },
+  programs: { title: { en: "QBBE programs", fr: "Programmes de QBBE" }, description: { en: "Explore QBBE program records for students, families, and educators, with current details clearly separated from historical context.", fr: "Explorez les dossiers de programmes de QBBE destinés aux élèves, aux familles et aux éducatrices et éducateurs, avec une distinction claire entre les renseignements actuels et le contexte historique." }, meta: source(["https://qbbe.ca/programs/"], "needs-program-review") },
+  events: { title: { en: "QBBE events", fr: "Événements QBBE" }, description: { en: "Upcoming QBBE events are published only after their date, audience, location, accessibility information, and registration status are confirmed.", fr: "Les événements à venir de QBBE sont publiés seulement après confirmation de leur date, de leur public, de leur lieu, de leurs renseignements d’accessibilité et de leur état d’inscription." }, meta: source(["https://qbbe.ca/upcoming-events-3/"], "needs-editorial-review") },
+  donate: { title: { en: "Donate to QBBE", fr: "Faire un don à QBBE" }, description: { en: "Make a one-time or monthly donation to support QBBE’s general work. Donation and Ally membership remain distinct.", fr: "Faites un don unique ou mensuel pour soutenir le travail général de QBBE. Le don et l’adhésion Allié demeurent distincts." }, meta: source(["https://qbbe.ca/donate/", "https://qbbe.ca/product/donation/"], "needs-legal-review", "Tax, restricted-giving, and payment wording require QBBE finance and legal approval.") },
+  register: { title: { en: "Register with QBBE", fr: "S’inscrire auprès de QBBE" }, description: { en: "Use QBBE’s current student portal for available registration while the Website 2.0 native intake remains privacy-gated.", fr: "Utilisez le portail étudiant actuel de QBBE pour les inscriptions disponibles pendant que le formulaire natif de Website 2.0 demeure soumis à des exigences de confidentialité." }, meta: source(["https://student.qbbe.ca/"], "needs-program-review", "The current student portal remains the operational handoff.") },
+  membership: { title: { en: "QBBE Ally membership", fr: "Adhésion Allié QBBE" }, description: { en: "Explore the historical QBBE Ally structure while QBBE confirms current plans, benefits, eligibility, and payment details.", fr: "Explorez la structure historique de l’adhésion Allié QBBE pendant que QBBE confirme les plans, avantages, critères d’admissibilité et détails de paiement actuels." }, meta: source(["https://qbbe.ca/membership-plans/"], "needs-legal-review", "Historic pricing and benefits are not enabled as a current offer.") },
+  search: { title: { en: "Search QBBE", fr: "Rechercher sur QBBE" }, description: { en: "Search QBBE’s source-traceable programs and public information.", fr: "Recherchez les programmes et renseignements publics de QBBE dont les sources sont traçables." }, meta: source(["https://qbbe.ca/"], "needs-editorial-review") },
+};

@@ -3,7 +3,15 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { ProgramFinder } from "@/components/program-finder";
 import { copy, isLocale, localePath } from "@/lib/i18n";
+import { routeSeo } from "@/lib/content";
+import { localizedMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return isLocale(locale) ? localizedMetadata(locale, "/", routeSeo.home.title, routeSeo.home.description) : {};
+}
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: candidate } = await params;

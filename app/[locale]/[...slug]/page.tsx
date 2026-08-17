@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
 import { annualReportAdditions, faqs, legacyBoardMembers, organization, pages, partners, reports } from "@/lib/content";
 import { isLocale, localePath } from "@/lib/i18n";
+import { localizedMetadata } from "@/lib/seo";
 
 const formTypes = {
   "about/contact": "contact",
@@ -23,13 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, slug } = await params;
   const content = isLocale(locale) ? pages[slug.join("/")] : undefined;
   if (!content || !isLocale(locale)) return {};
-  const alternateLocale = locale === "en" ? "fr" : "en";
-  return {
-    title: content.title[locale],
-    description: content.lead[locale],
-    alternates: { canonical: `/${locale}/${slug.join("/")}`, languages: { en: `/en/${slug.join("/")}`, fr: `/fr/${slug.join("/")}`, "x-default": `/en/${slug.join("/")}` } },
-    openGraph: { title: content.title[locale], description: content.lead[locale], locale: locale === "en" ? "en_CA" : "fr_CA", alternateLocale: alternateLocale === "en" ? "en_CA" : "fr_CA" },
-  };
+  return localizedMetadata(locale, `/${slug.join("/")}`, content.title, content.lead);
 }
 
 export default async function ContentPage({ params }: { params: Promise<{ locale: string; slug: string[] }> }) {

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
 import { programs } from "@/lib/content";
 import { isLocale, localePath } from "@/lib/i18n";
+import { localizedMetadata } from "@/lib/seo";
 
 const audienceLabels = {
   student: { en: "Students", fr: "Élèves" },
@@ -20,11 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(locale)) return {};
   const program = programs.find((item) => item.slug === slug);
   if (!program) return {};
-  return {
-    title: program.title[locale],
-    description: (program.shortSummary ?? program.summary)[locale],
-    alternates: { canonical: `/${locale}/programs/${slug}`, languages: { en: `/en/programs/${slug}`, fr: `/fr/programs/${slug}`, "x-default": `/en/programs/${slug}` } },
-  };
+  return localizedMetadata(locale, `/programs/${slug}`, program.title, program.shortSummary ?? program.summary);
 }
 
 export default async function ProgramPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
