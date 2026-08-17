@@ -20,9 +20,10 @@ describe("QBBE content migration", () => {
   });
 
   it("gives every inventory record a disposition", () => {
-    expect(legacyContentInventory).toHaveLength(61);
+    expect(legacyContentInventory).toHaveLength(66);
     expect(legacyContentInventory.every((item) => Boolean(item.status))).toBe(true);
     expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/private-parenting-facebook-group/" && item.status === "archive")).toBe(true);
+    expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/qbbe-and-red-rush-form-partnership-for-summer-institute-2021/" && item.status === "archive")).toBe(true);
   });
 
   it("keeps source-backed program detail fields and bilingual review state in the content layer", () => {
@@ -49,6 +50,7 @@ describe("QBBE content migration", () => {
     expect(legacyBoardMembers).toHaveLength(10);
     expect(legacyBoardMembers.every((member) => member.status === "historical")).toBe(true);
     expect(partners.some((partner) => partner.name === "Réseau réussite Montréal" && partner.relationshipStatus === "historical")).toBe(true);
+    expect(partners.some((partner) => partner.name === "Red Rush Basketball Program" && partner.relationshipStatus === "historical")).toBe(true);
     expect(partners.every((partner) => partner.relationshipStatus !== "current")).toBe(true);
   });
 

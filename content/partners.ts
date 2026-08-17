@@ -37,4 +37,14 @@ export const partners: Partner[] = [
     description: { en: "Acknowledged on the historic Self-Elevation Project page.", fr: "Reconnue sur la page historique du Projet d’autoélévation." },
     meta: historical(["https://qbbe.ca/sep/"], "Historic SEP acknowledgement; current relationship requires confirmation."),
   },
+  {
+    name: "Red Rush Basketball Program", category: category("Historical program partner", "Partenaire de programme historique"), relationshipStatus: "historical",
+    description: { en: "QBBE’s 2021 Summer Institute article describes a collaboration with Red Rush combining educational support with basketball, physical and mental well-being, and leadership. It is not presented as a current offer or partnership.", fr: "L’article de QBBE sur l’Institut d’été 2021 décrit une collaboration avec Red Rush combinant le soutien éducatif, le basketball, le bien-être physique et mental ainsi que le leadership. Elle n’est pas présentée comme une offre ou un partenariat actuel." },
+    meta: historical(["https://qbbe.ca/qbbe-and-red-rush-form-partnership-for-summer-institute-2021/"], "Historic 2021 Summer Institute collaboration; current relationship requires confirmation."),
+  },
+  {
+    name: "JAM VOCAL Foundation", category: category("Historical program partner", "Partenaire de programme historique"), relationshipStatus: "historical", relatedPrograms: ["bana"],
+    description: { en: "A 2023 BANA/JAM VOCAL Camp Director posting identifies the foundation as a collaborator for that summer camp. It is not presented as a current partnership.", fr: "Une offre de poste de direction du camp BANA/JAM VOCAL de 2023 identifie la fondation comme collaboratrice de ce camp estival. Elle n’est pas présentée comme un partenariat actuel." },
+    meta: historical(["https://qbbe.ca/camp-director/"], "Historic 2023 BANA/JAM VOCAL summer-camp collaboration; current relationship requires confirmation."),
+  },
 ];
