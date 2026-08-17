@@ -26,5 +26,6 @@ The fallback content is deliberately source-traceable and marks English/French a
 - Replace image placeholders with approved QBBE media and documented consent/alt text.
 - Configure Sanity schemas/content and edit workflows.
 - Set production Supabase project URL, publishable key, service role key, Stripe keys and webhook secret in Vercel.
+- Leave `QBBE_DONATIONS_ENABLED` and `QBBE_MEMBERSHIPS_ENABLED` as `false` until QBBE finance, legal, and operations approve the corresponding live checkout.
 - Confirm data-retention, consent, tax-receipt, restricted-fund, email, and financial policies.
 - Build and validate the legacy redirect inventory from qbbe.ca.
