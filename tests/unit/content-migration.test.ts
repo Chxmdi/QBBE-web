@@ -5,6 +5,7 @@ import { legacyBoardMembers } from "@/content/leadership";
 import { partners } from "@/content/partners";
 import { redirects } from "@/lib/legacy-redirects";
 import { pages, programs } from "@/lib/content";
+import sitemap from "@/app/sitemap";
 
 describe("QBBE content migration", () => {
   it("preserves the named legacy programs as distinct records", () => {
@@ -47,5 +48,20 @@ describe("QBBE content migration", () => {
     expect(legacyBoardMembers.every((member) => member.status === "historical")).toBe(true);
     expect(partners.some((partner) => partner.name === "Réseau réussite Montréal" && partner.relationshipStatus === "historical")).toBe(true);
     expect(partners.every((partner) => partner.relationshipStatus !== "current")).toBe(true);
+  });
+
+  it("gives every route-specific page unique, traceable bilingual content", () => {
+    const content = Object.values(pages);
+    const identity = content.map((page) => `${page.title.en}::${page.lead.en}`);
+    expect(new Set(identity)).toHaveProperty("size", content.length);
+    expect(content.every((page) => page.meta.sourceUrls.length > 0 && page.meta.translation.en && page.meta.translation.fr)).toBe(true);
+  });
+
+  it("includes each managed page in both locale sitemaps", () => {
+    const urls = sitemap().map((entry) => entry.url);
+    for (const path of Object.keys(pages)) {
+      expect(urls).toContain(`https://qbbe.ca/en/${path}`);
+      expect(urls).toContain(`https://qbbe.ca/fr/${path}`);
+    }
   });
 });
