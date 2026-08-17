@@ -14,6 +14,8 @@ This migration replaces generic seed content with a structured, bilingual-ready 
 
 68 meaningful pages, services, initiatives, or records are represented in `content/legacy-inventory.ts`. The final public WordPress API comparison returned 56 indexed pages, five historic employment/partnership posts, and two legacy WooCommerce products. This recovered nine records absent from the earlier inventory: the legacy Programs index, a private parenting Facebook-group form, four historic job postings, a 2021 Red Rush partnership article, and Registration/Donation product checkouts. The inventory also retains QBBE-owned French, student-portal, and homepage service records that are not separate WordPress page-index entries. Several routes returned a verification interstitial; those records are explicitly marked for follow-up.
 
+The public attachment index contained 21 application files. All are classified in [LEGACY_ATTACHMENT_AUDIT.md](LEGACY_ATTACHMENT_AUDIT.md); three verified historical PDFs are now surfaced in the report library.
+
 ## Content Classification
 
 | Classification | Count | Treatment |
@@ -76,8 +78,9 @@ Every new content object tracks English and French as `needs-review`. French rou
 
 ## Reports Migrated
 
-- 2020 Annual Report — archived record; file link and publication status require verification
-- 2000 Financial Statement — archived record; file link and publication status require verification
+- 2020 Annual Report — verified public 23-page PDF; retained as a historical report pending continued-publication approval
+- 2000 Financial Statement — verified public 10-page scanned PDF; retained as a historical financial record pending continued-publication approval
+- 2021 Annual General Meeting Minutes — verified public two-page governance PDF; retained as a historical record, not a current board roster or contact source
 
 ## Redirects Added
 

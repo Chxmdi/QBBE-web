@@ -70,6 +70,9 @@ export type Report = {
   language: "en" | "fr" | "bilingual";
   description: LocalizedString;
   sourceUrl: string;
+  /** Public document file, when QBBE has a verified asset URL distinct from its legacy landing page. */
+  fileUrl?: string;
+  publishedAt?: string;
   archived: boolean;
   meta: ContentSourceMeta;
 };

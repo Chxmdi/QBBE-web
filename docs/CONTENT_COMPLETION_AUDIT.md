@@ -23,6 +23,7 @@ Reviewed: 2026-08-17. This audit records the evidence currently available in the
 | Volunteer / Colibri | `get-involved/volunteer` | Historic mission, vision, and values retained with interest-only form | Current name, roles, screening, privacy, contact |
 | FAQ | `content/organization.ts` → `faqs` | Structured, bilingual FAQ records and legal caveats | Legal/finance approval for tax/donation content |
 | Reports/transparency | `reports`, report routes, `sanity/schemaTypes/report.ts` | 2020/2000 legacy records retained as archive | Approved source files, dates, publishing status |
+| Legacy document attachments | `LEGACY_ATTACHMENT_AUDIT.md` | All 21 public application attachments classified; 2020 Annual Report, 2000 Financial Statement, and 2021 AGM Minutes verified and linked | Confirm any newer approved documents and resolve two unknown/historic workshop files |
 | Leadership | `content/leadership.ts`, `about/leadership` | Historic board names structured and visibly marked non-current | Current board/staff roster, terms, consent |
 | Partners/funders | `content/partners.ts`, `about/partners` | Historical acknowledgements/funders structured and non-current | Status, category, logo rights, naming approval |
 | Centralized contact data | `content/organization.ts`, contact route | One settings record drives public contact display | Operations decision on public address/hours |

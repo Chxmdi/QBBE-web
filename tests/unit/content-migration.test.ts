@@ -34,6 +34,15 @@ describe("QBBE content migration", () => {
     expect(programs.every((program) => program.meta.translation.en && program.meta.translation.fr)).toBe(true);
   });
 
+  it("uses verified public document files for historical reports", async () => {
+    const { reports } = await import("@/content/organization");
+    expect(reports).toEqual(expect.arrayContaining([
+      expect.objectContaining({ year: 2020, type: "annual-report", fileUrl: "https://qbbe.ca/wp-content/uploads/QBBE-Annual-Report-2020-digital-copy.pdf" }),
+      expect.objectContaining({ year: 2000, type: "financial-statement", fileUrl: "https://qbbe.ca/wp-content/uploads/2020/11/Financial-Statements-2000.pdf" }),
+      expect.objectContaining({ year: 2021, type: "governance", fileUrl: "https://qbbe.ca/wp-content/uploads/Minutes-of-AGM-2021.pdf" }),
+    ]));
+  });
+
   it("keeps historic Ally plans inactive until QBBE approves a current offer", () => {
     expect(legacyMembershipPlans.length).toBeGreaterThan(0);
     expect(legacyMembershipPlans.every((plan) => plan.billingPeriod === "year" && !plan.active && plan.requiresApproval && plan.sourceStatus === "needs-review")).toBe(true);

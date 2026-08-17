@@ -58,7 +58,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
             {faqs.map((item) => <details key={item.question.en}><summary>{item.question[locale]}</summary><p>{item.answer[locale]}</p></details>)}
           </section>}
           {isReports && <section className="resource-list" aria-label={locale === "en" ? "Report archive" : "Archives des rapports"}>
-            {reports.map((report) => <a className="list-item" href={report.sourceUrl} key={report.sourceUrl} target="_blank" rel="noreferrer"><time>{report.year}<br />{report.archived ? (locale === "en" ? "Archive" : "Archives") : ""}</time><div><h3>{report.title[locale]}</h3><p>{report.description[locale]}</p></div><ExternalLink aria-hidden="true" /></a>)}
+            {reports.map((report) => <a className="list-item" href={report.fileUrl ?? report.sourceUrl} key={report.sourceUrl} target="_blank" rel="noreferrer"><time>{report.year}<br />{report.archived ? (locale === "en" ? "Archive" : "Archives") : ""}</time><div><h3>{report.title[locale]}</h3><p>{report.description[locale]}</p></div><ExternalLink aria-hidden="true" /></a>)}
           </section>}
           {isLeadership && <section className="resource-list" aria-label={locale === "en" ? "Historical board roster" : "Liste historique du conseil"}>
             <h2>{locale === "en" ? "Historical board roster" : "Liste historique du conseil"}</h2>
