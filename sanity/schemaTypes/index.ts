@@ -1,2 +1,5 @@
 import { program } from "./program";
-export const schemaTypes = [program];
+import { page } from "./page";
+import { report } from "./report";
+
+export const schemaTypes = [program, page, report];

@@ -1,0 +1,27 @@
+import type { ContentSourceMeta, FAQItem, Report } from "./types";
+
+const migratedAt = "2026-08-17";
+const source = (sourceUrls: string[], verificationStatus: ContentSourceMeta["verificationStatus"], notes?: string): ContentSourceMeta => ({ sourceUrls, migratedAt, migratedBy: "Website 2.0 migration", verificationStatus, notes, translation: { en: "needs-review", fr: "needs-review" } });
+
+export const organization = {
+  legalName: "Quebec Board of Black Educators",
+  publicName: "QBBE",
+  phone: "(514) 481-9400",
+  primaryEmail: "info@qbbe.ca",
+  address: "5050 Côte Saint Luc Rd, Montreal, Quebec H3W 2H1",
+  officeHours: { en: "Monday–Friday, 9 am–4 pm", fr: "Du lundi au vendredi, de 9 h à 16 h" },
+  meta: source(["https://qbbe.ca/contact-2/", "https://student.qbbe.ca/"], "needs-editorial-review", "Contact information is centralized here. Confirm public hours and bilingual postal style before launch."),
+};
+
+export const reports: Report[] = [
+  { title: { en: "2020 Annual Report", fr: "Rapport annuel 2020" }, year: 2020, type: "annual-report", language: "en", description: { en: "Legacy QBBE annual-report record. Confirm the document file and publication status before displaying a public download.", fr: "Document de rapport annuel QBBE historique. Confirmez le fichier et l’état de publication avant d’afficher un téléchargement public." }, sourceUrl: "https://qbbe.ca/reports/2020-annual-report/", archived: true, meta: source(["https://qbbe.ca/reports/2020-annual-report/"], "needs-editorial-review", "The source page confirms the record but the document URL was not available in crawl output.") },
+  { title: { en: "2000 Financial Statement", fr: "États financiers 2000" }, year: 2000, type: "financial-statement", language: "en", description: { en: "Historical financial-statement record preserved from the QBBE legacy site. Confirm file access and archival label before publication.", fr: "Dossier historique d’états financiers préservé du site QBBE. Confirmez l’accès au fichier et l’étiquette d’archives avant publication." }, sourceUrl: "https://qbbe.ca/reports/2000-financial-statement/", archived: true, meta: source(["https://qbbe.ca/reports/2000-financial-statement/"], "needs-editorial-review", "Historic content should be retained, not presented as current financial information.") },
+];
+
+export const faqs: FAQItem[] = [
+  { category: "about", question: { en: "What is QBBE?", fr: "Qu’est-ce que QBBE?" }, answer: { en: "QBBE is a nonprofit education and research institution. Its legacy materials describe work to raise awareness of educational bias and provide academic support and opportunities to communities of colour.", fr: "QBBE est une institution d’éducation et de recherche à but non lucratif. Ses documents historiques décrivent un travail de sensibilisation aux préjugés en éducation et de soutien scolaire et d’occasions pour les communautés de couleur." }, meta: source(["https://qbbe.ca/"], "needs-editorial-review") },
+  { category: "about", question: { en: "What is QBBE’s mission?", fr: "Quelle est la mission de QBBE?" }, answer: { en: "To encourage and support continuous improvements in Quebec’s education system and the equitable distribution of its benefits to communities of colour, so programs provide the best opportunity to pursue educational attainment and its social and economic outcomes.", fr: "Encourager et soutenir l’amélioration continue du système d’éducation du Québec et une distribution équitable de ses bénéfices aux communautés de couleur, afin que les programmes offrent les meilleures possibilités de réussite éducative et les retombées sociales et économiques qui en découlent." }, meta: source(["https://qbbe.ca/board-of-directors/"], "needs-editorial-review", "Formal mission retained in meaning from the legacy FAQ; French requires institutional approval.") },
+  { category: "about", question: { en: "Is QBBE a government or religious organization?", fr: "QBBE est-il un organisme gouvernemental ou religieux?" }, answer: { en: "The legacy FAQ identifies QBBE as a non-sectarian, non-governmental organization. QBBE should confirm this wording before launch.", fr: "La FAQ historique présente QBBE comme un organisme non confessionnel et non gouvernemental. QBBE doit confirmer cette formulation avant le lancement." }, meta: source(["https://qbbe.ca/board-of-directors/"], "needs-legal-review") },
+  { category: "programs", question: { en: "How do I register?", fr: "Comment puis-je m’inscrire?" }, answer: { en: "Use the program page to see whether registration is available. Da Costa Hall and Academic Support currently point to the QBBE student portal; all other program cycles should be confirmed with QBBE.", fr: "Utilisez la page du programme pour voir si les inscriptions sont disponibles. Da Costa Hall et le soutien scolaire renvoient actuellement au portail étudiant QBBE; les autres cycles doivent être confirmés auprès de QBBE." }, meta: source(["https://student.qbbe.ca/"], "needs-program-review") },
+  { category: "donations", question: { en: "Are tax receipts issued?", fr: "Des reçus fiscaux sont-ils remis?" }, answer: { en: "Tax-receipt eligibility and wording are under QBBE legal and finance review. Please contact QBBE before relying on a donation for tax purposes.", fr: "L’admissibilité aux reçus fiscaux et la formulation applicable sont en révision juridique et financière chez QBBE. Communiquez avec QBBE avant de vous fier à un don à des fins fiscales." }, meta: source([], "needs-legal-review") },
+];

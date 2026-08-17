@@ -114,6 +114,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .footer-grid a { color: rgba(255,255,255,.75); display: block; margin: .55rem 0; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.62); font-size: .8rem; margin-top: 2.6rem; padding-top: 1.25rem; }
 .notice { background: #fff8e4; border-left: 4px solid var(--gold); margin: 1rem 0; padding: 1rem; }
+.faq-list { border-top: 1px solid var(--line); margin-top: 2.5rem; }
+.faq-list details { border-bottom: 1px solid var(--line); padding: 1rem 0; }
+.faq-list summary { cursor: pointer; font-family: var(--display); font-size: 1.45rem; }
+.faq-list p { margin: .85rem 0 0; }
 .search-results { margin-top: 2rem; }
 .search-result { border-top: 1px solid var(--line); padding: 1rem 0; }
 @media (max-width: 900px) {

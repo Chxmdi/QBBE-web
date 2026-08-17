@@ -8,6 +8,14 @@
 
 Without external credentials, the site runs with bilingual seed content and safe no-op transactional fallbacks. The Stripe webhook and Supabase writes activate only when their server-side keys are configured.
 
+## Content migration
+
+- [Content migration report](docs/CONTENT_MIGRATION_REPORT.md)
+- [QBBE verification register](docs/CONTENT_VERIFICATION_REQUIRED.md)
+- [Legacy URL map](docs/LEGACY_URL_MAP.md)
+
+The fallback content is deliberately source-traceable and marks English/French approval status. It is not a substitute for QBBE program, legal, finance, and translation approval in Sanity.
+
 ## Before production
 
 - Replace image placeholders with approved QBBE media and documented consent/alt text.

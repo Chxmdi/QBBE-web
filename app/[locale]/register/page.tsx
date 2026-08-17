@@ -1,5 +1,10 @@
-import { Suspense } from "react";
+import { ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
-import { RegistrationForm } from "@/components/registration-form";
+import { PageHero } from "@/components/page-hero";
 import { isLocale } from "@/lib/i18n";
-export default async function RegisterPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; if (!isLocale(locale)) notFound(); return <Suspense><RegistrationForm locale={locale} /></Suspense>; }
+
+export default async function RegisterPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  return <><PageHero eyebrow={locale === "en" ? "Registration" : "Inscription"} title={locale === "en" ? "Register through QBBE’s current portal." : "Inscrivez-vous par le portail actuel de QBBE."} lead={locale === "en" ? "QBBE’s student portal currently lists Da Costa Hall summer 2026 registration and Academic Support information." : "Le portail étudiant de QBBE indique actuellement les inscriptions à Da Costa Hall pour l’été 2026 et des renseignements sur le soutien scolaire."} /><section className="section"><div className="shell content-grid"><article className="prose"><h2>{locale === "en" ? "Protecting student and family information" : "Protéger les renseignements des élèves et des familles"}</h2><p>{locale === "en" ? "Website 2.0 does not collect a new student/guardian application until QBBE approves the required fields, consent wording, access roles, retention period, and deletion process. This avoids replacing an operational form with an incomplete one.": "Website 2.0 ne recueille pas une nouvelle demande d’élève ou de parent/tuteur avant que QBBE approuve les champs requis, le texte de consentement, les rôles d’accès, la période de conservation et le processus de suppression. Cela évite de remplacer un formulaire opérationnel par un formulaire incomplet."}</p><a className="button" href="https://student.qbbe.ca/" target="_blank" rel="noreferrer">{locale === "en" ? "Open QBBE registration portal" : "Ouvrir le portail d’inscription QBBE"}<ExternalLink size={16} /></a></article><aside className="detail-meta"><dl><dt>{locale === "en" ? "Current source" : "Source actuelle"}</dt><dd>student.qbbe.ca</dd><dt>{locale === "en" ? "Native form status" : "État du formulaire natif"}</dt><dd>{locale === "en" ? "Awaiting QBBE privacy approval" : "En attente de l’approbation de confidentialité de QBBE"}</dd></dl></aside></div></section></>;
+}

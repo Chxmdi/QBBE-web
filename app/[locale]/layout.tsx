@@ -7,5 +7,5 @@ export function generateStaticParams() { return locales.map((locale) => ({ local
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
   const { locale } = await params; if (!isLocale(locale)) notFound();
-  return <><a className="skip-link" href="#main">Skip to content</a><SiteHeader locale={locale} /><main id="main">{children}</main><SiteFooter locale={locale} /></>;
+  return <><a className="skip-link" href="#main">{locale === "en" ? "Skip to content" : "Aller au contenu"}</a><SiteHeader locale={locale} /><main id="main">{children}</main><SiteFooter locale={locale} /></>;
 }
