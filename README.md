@@ -17,6 +17,7 @@ Without external credentials, the site runs with bilingual seed content and safe
 - [Route content audit](docs/ROUTE_CONTENT_AUDIT.md)
 - [Content completion audit](docs/CONTENT_COMPLETION_AUDIT.md)
 - [Legacy attachment audit](docs/LEGACY_ATTACHMENT_AUDIT.md)
+- [Student portal audit](docs/STUDENT_PORTAL_AUDIT.md)
 
 The fallback content is deliberately source-traceable and marks English/French approval status. It is not a substitute for QBBE program, legal, finance, and translation approval in Sanity.
 
