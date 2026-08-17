@@ -13,6 +13,7 @@ export const redirects = [
   { source: "/programs/the-bana-program-2", destination: "/en/programs/bana", permanent: true },
   { source: "/programs/the-dacosta-hall-program", destination: "/en/programs/da-costa-hall", permanent: true },
   { source: "/programs/high-school-preparation-program", destination: "/en/programs/high-school-preparation", permanent: true },
+  { source: "/daycare-program", destination: "/en/programs/daycare-program", permanent: true },
   { source: "/pssp", destination: "/en/resources/archived-initiatives", permanent: true },
   { source: "/sep", destination: "/en/resources/archived-initiatives", permanent: true },
   { source: "/programs/entrepreneurship-leadership-program", destination: "/en/resources/archived-initiatives", permanent: true },

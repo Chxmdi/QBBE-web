@@ -49,10 +49,11 @@ The public attachment index contained 21 application files. All are classified i
 | BANA | 2025 camp data retained as archived context, not current schedule/pricing |
 | Da Costa Hall | Restored as a dedicated program; 2026 registration portal identified |
 | High School Preparation | Preserved; current delivery requires confirmation |
+| Daycare Program | Public 2026 page preserved as a distinct, confirmation-gated record; no public offer or intake is inferred from its embedded form |
 
 ## Programs Requiring Verification
 
-Academic Support current grade/course delivery, Early Literacy current cycle, Future Careers current status, Learn to Code cycle/fee/waitlist, BANA 2026 schedule/fees/subsidy, Da Costa Hall current courses, High School Preparation active status, PSSP/SEP/entrepreneurship current status, and the newly recovered Daycare Program.
+Academic Support current grade/course delivery, Early Literacy current cycle, Future Careers current status, Learn to Code cycle/fee/waitlist, BANA 2026 schedule/fees/subsidy, Da Costa Hall current courses, High School Preparation active status, Daycare Program service and privacy requirements, and PSSP/SEP/entrepreneurship current status.
 
 ## Historical Claims Requiring Verification
 

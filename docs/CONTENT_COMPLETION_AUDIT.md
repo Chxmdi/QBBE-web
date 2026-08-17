@@ -14,6 +14,7 @@ Reviewed: 2026-08-17. This audit records the evidence currently available in the
 | BANA | `content/programs.ts` → `bana` | 2025 summer-camp model, academics, activities, historic fees/subsidies separated from current claims | Current summer schedule, ages, pricing, subsidies |
 | Da Costa Hall | `content/programs.ts` → `da-costa-hall` | Dedicated secondary remediation record and current student-portal pathway | Current courses, exams, grades, eligibility |
 | High School Preparation | `content/programs.ts` → `high-school-preparation` | Transition goals, workshop themes, and historical intended outcome retained | Confirm active delivery |
+| Daycare Program | `content/programs.ts` → `daycare-program`, current QBBE public page | Distinct record restored from the page modified 2026-08-10; no embedded-form data or unsupported service claim is exposed | Confirm active status, audience, safety, schedule, capacity, fees, privacy, consent, retention, and approved intake |
 | Future Careers | `content/programs.ts` → `future-careers` | Legacy initiative retained without salary/course promise | Confirm active, archive, or remove |
 | PSSP, SEP, Entrepreneurship | `resources/archived-initiatives`, inventory and redirects | Historical curriculum/funder knowledge retained in institutional archive | Confirm continued archive or reactivation |
 | Youth Empowerment | `impact/youth-empowerment` | Preserved as institutional theme, not invented active program | Confirm current initiative status |

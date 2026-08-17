@@ -51,7 +51,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ locale
       {program.relatedPrograms?.length ? <section><h2>{locale === "en" ? "Related programs" : "Programmes connexes"}</h2><p>{program.relatedPrograms.map((related, index) => { const item = programs.find((candidate) => candidate.slug === related); return item ? <span key={related}>{index > 0 ? " · " : ""}<Link href={localePath(locale, `/programs/${related}`)}>{item.title[locale]}</Link></span> : null; })}</p></section> : null}
     </article><aside className="detail-meta"><dl>
       <dt>{locale === "en" ? "Program status" : "État du programme"}</dt><dd>{program.status[locale]}</dd>
-      <dt>{locale === "en" ? "For" : "Pour"}</dt><dd>{audiences}</dd>
+      {audiences ? <><dt>{locale === "en" ? "For" : "Pour"}</dt><dd>{audiences}</dd></> : null}
       {program.age ? <><dt>{locale === "en" ? "Age" : "Âge"}</dt><dd>{program.age[locale]}</dd></> : null}
       {program.gradeRange ? <><dt>{locale === "en" ? "Grade range" : "Niveaux"}</dt><dd>{program.gradeRange[locale]}</dd></> : null}
       {program.format ? <><dt>{locale === "en" ? "Format" : "Format"}</dt><dd>{program.format[locale]}</dd></> : null}

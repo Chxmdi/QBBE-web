@@ -12,7 +12,7 @@ import sitemap from "@/app/sitemap";
 describe("QBBE content migration", () => {
   it("preserves the named legacy programs as distinct records", () => {
     expect(programs.map((program) => program.slug)).toEqual(expect.arrayContaining([
-      "academic-support", "early-literacy", "future-careers", "family-first", "learn-to-code", "bana", "da-costa-hall", "high-school-preparation",
+      "academic-support", "early-literacy", "future-careers", "family-first", "learn-to-code", "bana", "da-costa-hall", "high-school-preparation", "daycare-program",
     ]));
   });
 
@@ -28,6 +28,7 @@ describe("QBBE content migration", () => {
     expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/qbbe-and-red-rush-form-partnership-for-summer-institute-2021/" && item.status === "archive")).toBe(true);
     expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/product/donation/" && item.proposedNewRoute === "/en/donate")).toBe(true);
     expect(legacyContentInventory.some((item) => item.title === "17 Point Agreement reference" && item.status === "verify")).toBe(true);
+    expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/daycare-program/" && item.status === "verify" && item.proposedNewRoute === "/en/programs/daycare-program")).toBe(true);
   });
 
   it("keeps source-backed program detail fields and bilingual review state in the content layer", () => {
@@ -64,6 +65,7 @@ describe("QBBE content migration", () => {
       expect.objectContaining({ source: "/sep", destination: "/en/resources/archived-initiatives", permanent: true }),
       expect.objectContaining({ source: "/private-parenting-facebook-group", destination: "/en/resources/parents", permanent: true }),
       expect.objectContaining({ source: "/product/donation", destination: "/en/donate", permanent: true }),
+      expect.objectContaining({ source: "/daycare-program", destination: "/en/programs/daycare-program", permanent: true }),
     ]));
   });
 
