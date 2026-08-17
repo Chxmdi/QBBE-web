@@ -5,6 +5,7 @@ All destinations are locale-first. The proxy issues a permanent redirect for the
 | Old URL | New URL | 301/308 | Content state | New SEO title | Canonical |
 | --- | --- | --- | --- | --- | --- |
 | `/about-us/` | `/en/about` | Yes | Rewritten | About QBBE | `/en/about` |
+| `/programs/` | `/en/programs` | Yes | Merged | Programs | `/en/programs` |
 | `/history/` | `/en/about/history` | Yes | Rewritten | A history grounded in educational equity. | `/en/about/history` |
 | `/board-of-directors/` | `/en/about/leadership` | Yes | Rewritten | Governance in service of educational equity. | `/en/about/leadership` |
 | `/partners/` | `/en/about/partners` | Yes | Verify | Partnerships should be named with care. | `/en/about/partners` |
@@ -20,6 +21,7 @@ All destinations are locale-first. The proxy issues a permanent redirect for the
 | `/pssp/` | `/en/resources/archived-initiatives` | Yes | Archived context | Institutional archive | `/en/resources/archived-initiatives` |
 | `/sep/` | `/en/resources/archived-initiatives` | Yes | Archived context | Institutional archive | `/en/resources/archived-initiatives` |
 | `/programs/entrepreneurship-leadership-program/` | `/en/resources/archived-initiatives` | Yes | Archived context | Institutional archive | `/en/resources/archived-initiatives` |
+| `/private-parenting-facebook-group/` | `/en/resources/parents` | Yes | Archived privacy-sensitive form | Resources for parents | `/en/resources/parents` |
 | `/volunteers/` | `/en/get-involved/volunteer` | Yes | Rewritten | One Drop at a Time. | `/en/get-involved/volunteer` |
 | `/donate/` | `/en/donate` | Yes | Rewritten | Donate | `/en/donate` |
 | `/contact-2/` | `/en/about/contact` | Yes | Rewritten | Speak with QBBE. | `/en/about/contact` |

@@ -12,16 +12,16 @@ This migration replaces generic seed content with a structured, bilingual-ready 
 
 ## Total Legacy Pages Found
 
-59 meaningful pages, services, initiatives, or records are represented in `content/legacy-inventory.ts`. The public WordPress API recovered several additional records that were not visible in navigation, including PSSP, SEP, daycare, historic Ally membership, registration, campaign, policy, and internal utility pages. The QBBE site’s `/sitemap.xml` could not be accessed reliably during the crawl, and several routes returned a verification interstitial; those records are explicitly marked for follow-up.
+61 meaningful pages, services, initiatives, or records are represented in `content/legacy-inventory.ts`. The final public WordPress API comparison returned 56 indexed pages and recovered two records absent from the earlier inventory: the legacy Programs index and a private parenting Facebook-group form. The inventory also retains QBBE-owned French, student-portal, and homepage service records that are not separate WordPress page-index entries. Several routes returned a verification interstitial; those records are explicitly marked for follow-up.
 
 ## Content Classification
 
 | Classification | Count | Treatment |
 | --- | ---: | --- |
-| Keep | 1 | Preserved as a traceable source record |
+| Keep | 0 | No legacy item was copied unchanged; all retained material was rewritten, merged, archived, or held for verification |
 | Rewrite | 10 | Rewritten into route-specific Website 2.0 content |
-| Merge | 9 | Consolidated into the new information architecture |
-| Archive | 23 | Retained as historical content, not current operational content |
+| Merge | 10 | Consolidated into the new information architecture |
+| Archive | 24 | Retained as historical content, not current operational content |
 | Delete | 5 | Internal or orphan utility pages intentionally excluded from public migration |
 | Verify with QBBE | 12 | Kept out of current operational claims pending approval |
 
@@ -92,4 +92,4 @@ The core legacy map in `lib/legacy-redirects.ts` covers history, board, partners
 
 ## Final Source Comparison
 
-Every meaningful item reached in the QBBE public navigation has an explicit disposition in `content/legacy-inventory.ts`: migrated/re-written, merged, archived, or awaiting verification. The remaining differences are intentional: Website 2.0 removes unsupported seed metrics, scheduled events, testimonials, and current operational claims; it does not reproduce blocked legacy pages, expired dates, historic prices, or unverified partner/leadership data as current content.
+The final 2026-08-17 WordPress API page-index comparison found no unexplained current-page omission after adding the Programs index and private parenting Facebook Group form to `content/legacy-inventory.ts`. Every meaningful item reached in the QBBE public navigation or API index has an explicit disposition: migrated/re-written, merged, archived, intentionally deleted, or awaiting verification. The remaining differences are intentional: Website 2.0 removes unsupported seed metrics, scheduled events, testimonials, and current operational claims; it does not reproduce blocked legacy pages, expired dates, historic prices, private forms, or unverified partner/leadership data as current content.

@@ -20,8 +20,9 @@ describe("QBBE content migration", () => {
   });
 
   it("gives every inventory record a disposition", () => {
-    expect(legacyContentInventory.length).toBeGreaterThan(20);
+    expect(legacyContentInventory).toHaveLength(61);
     expect(legacyContentInventory.every((item) => Boolean(item.status))).toBe(true);
+    expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/private-parenting-facebook-group/" && item.status === "archive")).toBe(true);
   });
 
   it("keeps source-backed program detail fields and bilingual review state in the content layer", () => {
@@ -40,6 +41,7 @@ describe("QBBE content migration", () => {
     expect(redirects).toEqual(expect.arrayContaining([
       expect.objectContaining({ source: "/pssp", destination: "/en/resources/archived-initiatives", permanent: true }),
       expect.objectContaining({ source: "/sep", destination: "/en/resources/archived-initiatives", permanent: true }),
+      expect.objectContaining({ source: "/private-parenting-facebook-group", destination: "/en/resources/parents", permanent: true }),
     ]));
   });
 

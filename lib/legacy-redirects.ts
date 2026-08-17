@@ -1,5 +1,6 @@
 export const redirects = [
   { source: "/about-us", destination: "/en/about", permanent: true },
+  { source: "/programs", destination: "/en/programs", permanent: true },
   { source: "/history", destination: "/en/about/history", permanent: true },
   { source: "/board-of-directors", destination: "/en/about/leadership", permanent: true },
   { source: "/partners", destination: "/en/about/partners", permanent: true },
@@ -15,6 +16,7 @@ export const redirects = [
   { source: "/pssp", destination: "/en/resources/archived-initiatives", permanent: true },
   { source: "/sep", destination: "/en/resources/archived-initiatives", permanent: true },
   { source: "/programs/entrepreneurship-leadership-program", destination: "/en/resources/archived-initiatives", permanent: true },
+  { source: "/private-parenting-facebook-group", destination: "/en/resources/parents", permanent: true },
   { source: "/volunteers", destination: "/en/get-involved/volunteer", permanent: true },
   { source: "/donate", destination: "/en/donate", permanent: true },
   { source: "/contact-2", destination: "/en/about/contact", permanent: true },
