@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
-import { faqs, legacyBoardMembers, organization, pages, partners, reports } from "@/lib/content";
+import { annualReportAdditions, faqs, legacyBoardMembers, organization, pages, partners, reports } from "@/lib/content";
 import { isLocale, localePath } from "@/lib/i18n";
 
 const formTypes = {
@@ -38,6 +38,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
   const path = slug.join("/");
   const content = pages[path];
   if (!content) notFound();
+  const supplement = annualReportAdditions[path];
   const formType = formTypes[path as keyof typeof formTypes];
   const isFaq = path === "resources/faq";
   const isReports = path === "impact/reports" || path === "resources/publications";
@@ -49,7 +50,7 @@ export default async function ContentPage({ params }: { params: Promise<{ locale
     <section className="section">
       <div className="shell content-grid">
         <article className="prose">
-          {content.sections.map((section) => <section key={section.heading[locale]}>
+          {[...content.sections, ...(supplement?.sections ?? [])].map((section) => <section key={section.heading[locale]}>
             <h2>{section.heading[locale]}</h2>
             {section.paragraphs.map((paragraph) => <p key={paragraph[locale]}>{paragraph[locale]}</p>)}
             {section.bullets && <ul>{section.bullets.map((item) => <li key={item[locale]}>{item[locale]}</li>)}</ul>}

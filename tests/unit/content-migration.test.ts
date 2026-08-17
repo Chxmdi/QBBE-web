@@ -3,6 +3,7 @@ import { legacyContentInventory } from "@/content/legacy-inventory";
 import { legacyMembershipPlans } from "@/content/membership";
 import { legacyBoardMembers } from "@/content/leadership";
 import { partners } from "@/content/partners";
+import { annualReportAdditions } from "@/content/annual-report-additions";
 import { redirects } from "@/lib/legacy-redirects";
 import { pages, programs } from "@/lib/content";
 import sitemap from "@/app/sitemap";
@@ -20,11 +21,12 @@ describe("QBBE content migration", () => {
   });
 
   it("gives every inventory record a disposition", () => {
-    expect(legacyContentInventory).toHaveLength(68);
+    expect(legacyContentInventory).toHaveLength(70);
     expect(legacyContentInventory.every((item) => Boolean(item.status))).toBe(true);
     expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/private-parenting-facebook-group/" && item.status === "archive")).toBe(true);
     expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/qbbe-and-red-rush-form-partnership-for-summer-institute-2021/" && item.status === "archive")).toBe(true);
     expect(legacyContentInventory.some((item) => item.sourceUrl === "https://qbbe.ca/product/donation/" && item.proposedNewRoute === "/en/donate")).toBe(true);
+    expect(legacyContentInventory.some((item) => item.title === "17 Point Agreement reference" && item.status === "verify")).toBe(true);
   });
 
   it("keeps source-backed program detail fields and bilingual review state in the content layer", () => {
@@ -62,7 +64,13 @@ describe("QBBE content migration", () => {
     expect(legacyBoardMembers.every((member) => member.status === "historical")).toBe(true);
     expect(partners.some((partner) => partner.name === "Réseau réussite Montréal" && partner.relationshipStatus === "historical")).toBe(true);
     expect(partners.some((partner) => partner.name === "Red Rush Basketball Program" && partner.relationshipStatus === "historical")).toBe(true);
+    expect(partners.some((partner) => partner.name === "Centraide" && partner.relationshipStatus === "historical")).toBe(true);
     expect(partners.every((partner) => partner.relationshipStatus !== "current")).toBe(true);
+  });
+
+  it("keeps annual-report migration additions traceable and historical", () => {
+    expect(annualReportAdditions["about/history"].meta.sourceUrls).toContain("https://qbbe.ca/wp-content/uploads/QBBE-Annual-Report-2020-digital-copy.pdf");
+    expect(annualReportAdditions["resources/archived-initiatives"].sections[0].heading.en).toContain("Black Family Support Program");
   });
 
   it("gives every route-specific page unique, traceable bilingual content", () => {

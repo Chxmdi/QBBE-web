@@ -47,4 +47,24 @@ export const partners: Partner[] = [
     description: { en: "A 2023 BANA/JAM VOCAL Camp Director posting identifies the foundation as a collaborator for that summer camp. It is not presented as a current partnership.", fr: "Une offre de poste de direction du camp BANA/JAM VOCAL de 2023 identifie la fondation comme collaboratrice de ce camp estival. Elle n’est pas présentée comme un partenariat actuel." },
     meta: historical(["https://qbbe.ca/camp-director/"], "Historic 2023 BANA/JAM VOCAL summer-camp collaboration; current relationship requires confirmation."),
   },
+  {
+    name: "Centraide", category: category("Historical funder", "Bailleur de fonds historique"), relationshipStatus: "historical",
+    description: { en: "QBBE’s 2020 Annual Report credits Centraide funding with supporting website rebranding and online classes, tutoring, and academic support during that period. It is not presented as a current grant.", fr: "Le rapport annuel 2020 de QBBE attribue au financement de Centraide le soutien à la refonte du site Web ainsi qu’aux cours en ligne, au tutorat et au soutien scolaire pendant cette période. Il n’est pas présenté comme une subvention actuelle." },
+    meta: historical(["https://qbbe.ca/wp-content/uploads/QBBE-Annual-Report-2020-digital-copy.pdf"], "Historic 2020 Annual Report acknowledgement; current relationship requires confirmation."),
+  },
+  {
+    name: "Groupe 3737", category: category("Historical funder", "Bailleur de fonds historique"), relationshipStatus: "historical",
+    description: { en: "Listed in QBBE’s 2020 Annual Report financial overview as a primary funder for that reporting period. It is not presented as a current funder.", fr: "Mentionné dans l’aperçu financier du rapport annuel 2020 de QBBE comme bailleur de fonds principal pour cette période. Il n’est pas présenté comme bailleur de fonds actuel." },
+    meta: historical(["https://qbbe.ca/wp-content/uploads/QBBE-Annual-Report-2020-digital-copy.pdf"], "Historic 2020 Annual Report acknowledgement; current relationship requires confirmation."),
+  },
+  {
+    name: "EMSB", category: category("Historical funder", "Bailleur de fonds historique"), relationshipStatus: "historical",
+    description: { en: "Listed in QBBE’s 2020 Annual Report financial overview as an EMSB grant for that reporting period. It is not presented as a current grant.", fr: "Mentionné dans l’aperçu financier du rapport annuel 2020 de QBBE comme subvention de l’EMSB pour cette période. Il n’est pas présenté comme une subvention actuelle." },
+    meta: historical(["https://qbbe.ca/wp-content/uploads/QBBE-Annual-Report-2020-digital-copy.pdf"], "Historic 2020 Annual Report acknowledgement; current relationship requires confirmation."),
+  },
+  {
+    name: "The Summit 4C", category: category("Historical funder", "Bailleur de fonds historique"), relationshipStatus: "historical",
+    description: { en: "Listed in QBBE’s 2020 Annual Report financial overview as a primary funder for that reporting period. It is not presented as a current funder.", fr: "Mentionné dans l’aperçu financier du rapport annuel 2020 de QBBE comme bailleur de fonds principal pour cette période. Il n’est pas présenté comme bailleur de fonds actuel." },
+    meta: historical(["https://qbbe.ca/wp-content/uploads/QBBE-Annual-Report-2020-digital-copy.pdf"], "Historic 2020 Annual Report acknowledgement; current relationship requires confirmation."),
+  },
 ];
